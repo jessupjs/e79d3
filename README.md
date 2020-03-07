@@ -5,14 +5,14 @@ Github: https://github.com/jessupjs/e79d3
 
 
 
-###Resources:<br>
+### Resources:<br>
 For D3
 + [d3js.org](https://d3js.org)
 + [d3 API ref.](https://github.com/d3/d3/blob/master/API.md)
 + [d3 npm](https://www.npmjs.com/package/d3)
 + [d3 Observable](https://observablehq.com/@d3)
 
-###Outline:<br>
+### Outline:<br>
 Week 1
 1. Html, Css, Js Basics
 2. Main.js and Object Oriented Programming
