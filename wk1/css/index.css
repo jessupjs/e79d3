@@ -1,0 +1,25 @@
+
+#topBar {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    position: fixed;
+    width: 100vw;
+}
+
+#topTitle {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+#topCounter {
+    margin: 0 20px 0 0;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
