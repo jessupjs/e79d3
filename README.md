@@ -1,7 +1,6 @@
 # e79d3
 
 Class: Harvard DCE, E-79 "The Art and Design of Information" (Spring 2020)<br>
-
 Authors: Zona Kostic, Ning Chen, Jared Jessup<br>
 
 Github: https://github.com/jessupjs/e79d3

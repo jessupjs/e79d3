@@ -1,6 +1,7 @@
 
 #topBar {
     align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.8);
     display: flex;
     justify-content: space-between;
     padding: 10px;
@@ -16,10 +17,14 @@
 }
 
 #topCounter {
-    margin: 0 20px 0 0;
+    margin: 2px 20px 0 0;
 
     font-family: 'Roboto', sans-serif;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 400;
     letter-spacing: 1px;
+}
+
+#topCounter span {
+    color: red;
 }
