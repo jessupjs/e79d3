@@ -17,5 +17,10 @@ Week 1
 1. Html, Css, Js Basics
 2. Main.js and Object Oriented Programming
 3. Bringing in Data
-4. Setting up the D3 Workspace
-5. Getting Started: Data Binding and DOM Manipulation
+
+Week 2
+1. Setting up the D3 Workspace - 'init-wrangle-render' pattern
+2. Getting Started: Data Binding and DOM Manipulation
+3. D3 Tooling (using the API)
+4. Managing Change - 'enter-update-exit' pattern
+5. Event Handling

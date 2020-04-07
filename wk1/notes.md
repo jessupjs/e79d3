@@ -15,8 +15,3 @@
  <br>b. Standalone scripts in an [IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE)
  <br>c. `main.js` for data load, instantiation, event handling
  <br>d. Classes in JS (ref. [Javascript.info](https://javascript.info/class))
-
-4. D3 Pattern 1
- <br>a. `init()`: one-time setup operations
- <br>b. `wrangle()`: data organization
- <br>c. `render()`: DOM interaction
