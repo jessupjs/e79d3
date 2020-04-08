@@ -15,7 +15,7 @@ class Template {
     svgH = 540;
     gMargin = {top: 0, right: 0, bottom: 0, left: 0};
     gW = this.svgW - (this.gMargin.right + this.gMargin.left);
-    gH = this.svgH - (this.gMargin.top + this.gMargin.left);
+    gH = this.svgH - (this.gMargin.top + this.gMargin.bottom);
 
     /*
     Constructor
