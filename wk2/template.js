@@ -38,6 +38,7 @@ class Template {
 
         // Set up the svg/g work space
         vis.svg = d3.select(`#${vis.target}`)
+            .append('svg')
             .attr('width', vis.svgW)
             .attr('height', vis.svgH);
         vis.g = vis.svg.append('g')
