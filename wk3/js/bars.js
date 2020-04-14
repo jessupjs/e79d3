@@ -146,9 +146,50 @@ class Bars {
                             .attr('y', vis.gH + vis.xAxisOffset)
                             .text(d.key)
                     })
+                    .on('click', e => {
+                        vis.selectBar(e);
+                        updateScatter(e)
+                    })
+                    .on('mouseover', e => {
+                        vis.hoverBar(e);
+                    })
+                    .on('mouseout', e => {
+                        vis.hideHoverBar(e);
+                    })
             );
 
         // Build axis
         vis.yAxisG.call(vis.yAxis);
+    }
+
+    /*
+    hoverBar
+     */
+    hoverBar(e) {
+
+        // Get target and set class to true
+        const target = d3.event.target;
+        d3.select(target).classed('hovBarRect', true);
+    }
+
+    /*
+    hideHoverBar
+     */
+    hideHoverBar(e) {
+
+        // Deselect
+        d3.selectAll('.barRect').classed('hovBarRect', false);
+    }
+
+    /*
+    selectBar
+     */
+    selectBar(e) {
+        // Deselect
+        d3.selectAll('.barRect').classed('selBarRect', false);
+
+        // Get target and set class to true
+        const target = d3.event.target;
+        d3.select(target).classed('selBarRect', true);
     }
 }

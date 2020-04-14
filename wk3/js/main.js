@@ -29,3 +29,15 @@ d3.csv('data/data_20200407.csv', function (d) {
     scatter = new Scatter(d, 'scatter');
 
 }).catch(err => console.log(err));
+
+/*
+updateScatter()
+ */
+function updateScatter(e) {
+    // Set data object
+    const eventData = e;
+    // Pass into scatterPlot chart
+    scatter.hoursFilter = e.key;
+    // Re-wrangle data
+    scatter.wrangle();
+}

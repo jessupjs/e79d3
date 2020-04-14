@@ -10,6 +10,18 @@ text {
     text-anchor: middle;
 }
 
+.barRect {
+    fill: rgba(0, 0, 0, 0.5);
+}
+
+.hovBarRect {
+    fill: rgba(0, 0, 0, 0.75);
+}
+
+.selBarRect {
+    fill: rgba(0, 0, 0, 1);
+}
+
 .barText {
 }
 

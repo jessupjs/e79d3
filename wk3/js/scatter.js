@@ -34,6 +34,9 @@ class Scatter {
     yAxis = d3.axisLeft().ticks(5);
     xAxis = d3.axisBottom();
 
+    // Init
+    hoursFilter = '';
+
     /*
     Constructor
      */
@@ -92,16 +95,22 @@ class Scatter {
     wrangle() {
         // Define this vis
         const vis = this;
+        console.log('// Data');
+        console.log(vis.data);
 
         // Define displayData
-        vis.displayData = vis.data.filter(d => d);
+        if (vis.hoursFilter !== '') {
+            vis.displayData = vis.data.filter(d => d.min_time_constraint === +vis.hoursFilter);
+        } else {
+            vis.displayData = vis.data.filter(d => d);
+        }
 
         // Config
-        vis.xScale.domain([0, Math.ceil(d3.max(vis.displayData, d => d.years_prof_exp))]);
+        vis.xScale.domain([0, Math.ceil(d3.max(vis.data, d => d.years_prof_exp))]);
         if (vis.xScale.domain()[1] % 2 !== 0) {
             vis.xScale.domain([0, vis.xScale.domain()[1] + 1]);
         }
-        vis.yScale.domain([0, d3.max(vis.displayData, d => d.years_prog_exp_adj)]);
+        vis.yScale.domain([0, d3.max(vis.data, d => d.years_prog_exp_adj)]);
         vis.xAxis.scale(vis.xScale);
         vis.yAxis.scale(vis.yScale);
 
@@ -117,27 +126,40 @@ class Scatter {
         const vis = this;
 
         // Build scatterG
-        vis.scatterG.selectAll('plotCirc')
-            .data(vis.displayData)
+        vis.scatterG.selectAll('.plotCirc')
+            .data(vis.displayData, d => d.name)
             .join(
                 enter => enter
+                    .each(function(d) {})
                     .append('circle')
                     .attr('class', 'plotCirc')
                     .attr('r', vis.plotR)
+                    .each(function(d) {
+                        // Define this
+                        const plotCirc = d3.select(this);
+                        // Add properties
+                        plotCirc.transition()
+                            .attr('cx', d => vis.xScale(d.years_prof_exp))
+                            .attr('cy', d => vis.yScale(d.years_prog_exp_adj))
+                            .attr('fill', d => {
+                                if (d.hasOwnProperty('vis_align_1')) {
+                                    const domain = d.vis_align_1.substring(0, 3).toLowerCase();
+                                    return vis.colorScale(domain);
+                                }
+                                return 'rgb(0, 0, 0)';
+                            })
+                    }),
+                update => update
+                    .transition()
+                    .duration(1000)
                     .attr('cx', d => vis.xScale(d.years_prof_exp))
-                    .attr('cy', d => vis.yScale(d.years_prog_exp_adj))
-                    .attr('fill', d => {
-                        if (d.hasOwnProperty('vis_align_1')) {
-                            const domain = d.vis_align_1.substring(0, 3).toLowerCase();
-                            return vis.colorScale(domain);
-                        }
-                        return 'rgb(0, 0, 0)';
-                    })
+                    .attr('cy', d => vis.yScale(d.years_prog_exp_adj)),
+                exit => exit.remove().transition()
             );
 
         // Build axes
-        vis.xAxisG.call(vis.xAxis);
-        vis.yAxisG.call(vis.yAxis);
+        vis.xAxisG.transition().call(vis.xAxis);
+        vis.yAxisG.transition().call(vis.yAxis);
 
     }
 }
