@@ -1,0 +1,21 @@
+
+text {
+    font-family: sans-serif;
+    font-size: 12px;
+}
+
+.text {
+    alignment-baseline: center;
+    fill: rgba(0, 0, 0, 1);
+    text-anchor: middle;
+}
+
+.barText {
+}
+
+.labelText {
+    fill: rgb(171, 106, 133);
+    font-size: 14px;
+    font-weight: lighter;
+    letter-spacing: 1px;
+}

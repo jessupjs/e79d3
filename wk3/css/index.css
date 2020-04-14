@@ -4,12 +4,24 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.8);
     display: flex;
     justify-content: space-between;
-    padding: 10px;
+    padding: 3px 15px;
     position: fixed;
+    top: 0;
     width: 100vw;
 }
 
+.pos {
+    align-items: center;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+#topIcon {
+    height: 35px;
+}
+
 #topTitle {
+    margin: 0 0 0 10px;
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-weight: 300;
@@ -17,7 +29,7 @@
 }
 
 #topCounter {
-    margin: 2px 20px 0 0;
+    margin: 2px 0 0 0;
 
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
@@ -26,17 +38,19 @@
 }
 
 #topCounter span {
-    color: red;
+    color: rgb(171, 106, 133);
 }
 
 .slide {
     display: flex;
+    position: relative;
     width: 100vw;
 }
 
 #slide1 {
-    height: 100vh;
-    min-height: 712px;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: 200px 0 0 0;
 }
 
 .side {
@@ -54,8 +68,24 @@
 }
 
 .figure {
+    border-bottom: 1px solid rgb(160, 0, 78);
+    padding: 0 0 5px 0;
+    width: 100%;
+
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
     font-weight: 300;
     letter-spacing: 1px;
+}
+
+#pie {
+    position: absolute;
+    justify-self: center;
+    top: -120px;
+}
+
+#botBar {
+    height: 50vh;
+    min-height: 356px;
+    width: 100vw;
 }
