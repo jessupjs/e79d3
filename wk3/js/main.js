@@ -36,8 +36,17 @@ updateScatter()
 function updateScatter(e) {
     // Set data object
     const eventData = e;
-    // Pass into scatterPlot chart
-    scatter.hoursFilter = e.key;
+    // Init same
+    let same = false;
+    // Evaluate
+    if (e.key === scatter.hoursFilter) {
+        scatter.hoursFilter = ''
+        same = true
+    } else {
+        scatter.hoursFilter = e.key;
+    }
     // Re-wrangle data
     scatter.wrangle();
+
+    return same;
 }

@@ -147,11 +147,11 @@ class Bars {
                             .text(d.key)
                     })
                     .on('click', e => {
-                        vis.selectBar(e);
-                        updateScatter(e)
+                        const same = updateScatter(e)
+                        vis.selectBar(e, same);
                     })
                     .on('mouseover', e => {
-                        vis.hoverBar(e);
+                        vis.showHoverBar(e);
                     })
                     .on('mouseout', e => {
                         vis.hideHoverBar(e);
@@ -163,10 +163,9 @@ class Bars {
     }
 
     /*
-    hoverBar
+    showHoverBar
      */
-    hoverBar(e) {
-
+    showHoverBar(e) {
         // Get target and set class to true
         const target = d3.event.target;
         d3.select(target).classed('hovBarRect', true);
@@ -176,7 +175,6 @@ class Bars {
     hideHoverBar
      */
     hideHoverBar(e) {
-
         // Deselect
         d3.selectAll('.barRect').classed('hovBarRect', false);
     }
@@ -184,12 +182,14 @@ class Bars {
     /*
     selectBar
      */
-    selectBar(e) {
+    selectBar(e, same) {
         // Deselect
         d3.selectAll('.barRect').classed('selBarRect', false);
 
-        // Get target and set class to true
-        const target = d3.event.target;
-        d3.select(target).classed('selBarRect', true);
+        if (!same) {
+            // Get target and set class to true
+            const target = d3.event.target;
+            d3.select(target).classed('selBarRect', true);
+        }
     }
 }

@@ -10,6 +10,7 @@ class Scatter {
     svg = null;
     g = null;
     scatterG = null;
+    tooltip = null;
 
     // Configs
     svgW = 500;
@@ -74,6 +75,8 @@ class Scatter {
         vis.yAxisG = vis.g.append('g')
             .style('transform', `translateX(${vis.yAxisOffset}px)`)
             .attr('class', 'axisG');
+        vis.tooltip = vis.scatterG.append('text')
+            .attr('class', 'tooltip');
 
         // Write labels
         vis.xAxisG.append('text')
@@ -95,8 +98,6 @@ class Scatter {
     wrangle() {
         // Define this vis
         const vis = this;
-        console.log('// Data');
-        console.log(vis.data);
 
         // Define displayData
         if (vis.hoursFilter !== '') {
@@ -106,11 +107,11 @@ class Scatter {
         }
 
         // Config
-        vis.xScale.domain([0, Math.ceil(d3.max(vis.data, d => d.years_prof_exp))]);
+        vis.xScale.domain([0, Math.ceil(d3.max(vis.displayData, d => d.years_prof_exp))]);
         if (vis.xScale.domain()[1] % 2 !== 0) {
             vis.xScale.domain([0, vis.xScale.domain()[1] + 1]);
         }
-        vis.yScale.domain([0, d3.max(vis.data, d => d.years_prog_exp_adj)]);
+        vis.yScale.domain([0, d3.max(vis.displayData, d => d.years_prog_exp_adj)]);
         vis.xAxis.scale(vis.xScale);
         vis.yAxis.scale(vis.yScale);
 
@@ -148,13 +149,17 @@ class Scatter {
                                 }
                                 return 'rgb(0, 0, 0)';
                             })
-                    }),
+                    })
+                    .on('mouseover', e => vis.showTooltip(e))
+                    .on('mousemove', e => vis.showTooltip(e))
+                    .on('mouseout', () => vis.hideTooltip())
+                ,
                 update => update
                     .transition()
                     .duration(1000)
                     .attr('cx', d => vis.xScale(d.years_prof_exp))
                     .attr('cy', d => vis.yScale(d.years_prog_exp_adj)),
-                exit => exit.remove().transition()
+                exit => exit.transition().remove()
             );
 
         // Build axes
@@ -162,4 +167,30 @@ class Scatter {
         vis.yAxisG.transition().call(vis.yAxis);
 
     }
+
+    hideTooltip(e) {
+        // Define this vis
+        const vis = this;
+
+        // Remove text
+        vis.tooltip.text('')
+    }
+
+    showTooltip(e) {
+        // Define this vis
+        const vis = this;
+
+        // Get coordinates and set name
+        const x = d3.event.offsetX - vis.gMargin.left + 10;
+        const y = d3.event.offsetY - vis.gMargin.top - 10;
+        const name = e.name;
+        vis.tooltip.text(name)
+            .attr('x', x)
+            .attr('y', y);
+    }
 }
+
+/*
+Ref.
+https://github.com/d3/d3-selection/blob/v1.4.1/README.md#selection_on
+ */

@@ -22,5 +22,7 @@ Week 2
 1. Setting up the D3 Workspace - 'init-wrangle-render' pattern
 2. Getting Started: Data Binding and DOM Manipulation
 3. D3 Tooling (using the API)
-4. Managing Change - 'enter-update-exit' pattern
-5. Event Handling
+
+Week 3
+1. Managing Change - 'enter-update-exit' pattern
+2. Event Handling
