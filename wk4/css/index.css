@@ -1,0 +1,98 @@
+
+#topBar {
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: space-between;
+    padding: 3px 15px;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 101;
+}
+
+.pos {
+    align-items: center;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+#topIcon {
+    height: 35px;
+}
+
+#topTitle {
+    margin: 0 0 0 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+#topCounter {
+    margin: 2px 0 0 0;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+#topCounter span {
+    color: rgb(171, 106, 133);
+}
+
+.slide {
+    display: flex;
+    position: relative;
+    width: 100vw;
+}
+
+#slide1 {
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: 200px 0 0 0;
+}
+
+#slide2 {
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: 50px 0 0 0;
+}
+
+.side {
+    align-items: center;
+    display: flex;
+    flex-flow: column nowrap;
+    height: 100%;
+    justify-content: center;
+    width: 50%;
+}
+
+.container {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.figure {
+    border-bottom: 1px solid rgb(160, 0, 78);
+    padding: 0 0 5px 0;
+    width: 100%;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+#pie {
+    position: absolute;
+    justify-self: center;
+    top: -120px;
+}
+
+#botBar {
+    height: 50vh;
+    min-height: 356px;
+    width: 100vw;
+}
