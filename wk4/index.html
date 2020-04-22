@@ -21,60 +21,92 @@
 </head>
 
 <body>
-    <header id="topBar">
-        <div id="posL" class="pos">
-            <img id="topIcon" src="assets/ddd.svg" alt="Data.Design.Development">
-            <h1 id="topTitle">e79.d3</h1>
-        </div>
-        <div id="posR" class="pos">
-            <h2 id="topCounter">
-                <!-- Count object content will appear here -->
-            </h2>
-        </div>
-    </header>
+<header id="topBar">
+    <div id="posL" class="pos">
+        <img id="topIcon" src="assets/ddd.svg" alt="Data.Design.Development">
+        <h1 id="topTitle">e79.d3</h1>
+    </div>
+    <div id="posR" class="pos">
+        <h2 id="topCounter">
+            <!-- Count object content will appear here -->
+        </h2>
+    </div>
+</header>
 
-    <main>
-        <div id="slide1" class="slide">
-            <div id="sideA" class="side">
-                <div class="container">
-                    <h1 class="figure">Fig 1. "Bars", high-level view</h1>
-                    <div id="bars">
-                        <!-- Bars object content will appear here -->
-                    </div>
-                </div>
-            </div>
-            <div id="pie">
-                <!-- Bars object content will appear here -->
-            </div>
-            <div id="sideB" class="side">
-                <div class="container">
-                    <h1 class="figure">Fig 2. "Scatter", low-level view</h1>
-                    <div id="scatter">
-                        <!-- Scatter object content will appear here -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="slide2" class="slide">
+<main>
+    <div id="slide1" class="slide">
+        <div id="sideA" class="side">
             <div class="container">
-                <div id="custom">
-                    <!-- Custom object content will appear here -->
+                <h1 class="figure">Fig 1. "Bars", high-level view</h1>
+                <div id="bars">
+                    <!-- Bars object content will appear here -->
                 </div>
             </div>
         </div>
+        <div id="pie">
+            <!-- Bars object content will appear here -->
+        </div>
+        <div id="sideB" class="side">
+            <div class="container">
+                <h1 class="figure">Fig 2. "Scatter", low-level view</h1>
+                <div id="scatter">
+                    <!-- Scatter object content will appear here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="slide2" class="slide">
+        <div class="container">
+            <div id="custom">
+                <!-- Custom object content will appear here -->
+            </div>
+            <div id="filterBox">
+                <label>Prio 1
+                    <span>
+                        <select onchange="filterCustom(this)">
+                            <option value="1_all">All</option>
+                            <option value="1_dat">Data</option>
+                            <option value="1_des">Design</option>
+                            <option value="1_dev">Development</option>
+                        </select>
+                    </span>
+                </label>
+                <label>Prio 2
+                    <span>
+                        <select onchange="filterCustom(this)">
+                            <option value="2_all">All</option>
+                            <option value="2_dat">Data</option>
+                            <option value="2_des">Design</option>
+                            <option value="2_dev">Development</option>
+                        </select>
+                    </span>
+                </label>
+                <label>Prio 3
+                    <span>
+                        <select onchange="filterCustom(this)">
+                            <option value="3_all">All</option>
+                            <option value="3_dat">Data</option>
+                            <option value="3_des">Design</option>
+                            <option value="3_dev">Development</option>
+                        </select>
+                    </span>
+                </label>
+            </div>
+        </div>
+    </div>
 
-    </main>
+</main>
 
-    <footer id="botBar"></footer>
+<footer id="botBar"></footer>
 
-    <!-- Scripts -->
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="js/count.js"></script>
-    <script src="js/bars.js"></script>
-    <script src="js/pie.js"></script>
-    <script src="js/scatter.js"></script>
-    <script src="js/custom.js"></script>
-    <script src="js/main.js"></script>
+<!-- Scripts -->
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="js/count.js"></script>
+<script src="js/bars.js"></script>
+<script src="js/pie.js"></script>
+<script src="js/scatter.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/main.js"></script>
 
 </body>
 

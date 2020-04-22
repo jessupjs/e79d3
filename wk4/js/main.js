@@ -35,6 +35,13 @@ d3.csv('data/data_20200407.csv', function (d) {
 }).catch(err => console.log(err));
 
 /*
+filterCustom()
+ */
+function filterCustom(sel) {
+    custom.handle_filter_event(sel.value);
+}
+
+/*
 updateScatter()
  */
 function updateScatter(e) {
