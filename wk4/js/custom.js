@@ -142,7 +142,7 @@ class Custom {
                     .attr('class', 'userG')
                     .each(function(d, i) {
                         // Define this
-                        const userG = d3.select(this)
+                        const userG = d3.select(this);
                         // Reset lineCoords
                         lineCoords = [];
                         // Append line
@@ -151,7 +151,8 @@ class Custom {
                         // Append an alignG1
                         const alignG1 = userG.append('g')
                             .attr('class', 'alignG alignG1')
-                            .style('transform', getCoords(vis.bigR, i));
+                        alignG1.transition()
+                                .style('transform', getCoords(vis.bigR, i));
                         alignG1.append('circle')
                             .attr('class', 'whiteCirc whiteCirc1')
                             .attr('r', vis.lilR + vis.whiteCircInc)
@@ -168,7 +169,8 @@ class Custom {
                             });
                         // Append an alignG2
                         const alignG2 = userG.append('g')
-                            .attr('class', 'alignG alignG2')
+                            .attr('class', 'alignG alignG2');
+                        alignG2.transition()
                             .style('transform', getCoords(vis.bigR + vis.bigRInc, i + vis.curveInc));
                         alignG2.append('circle')
                             .attr('class', 'whiteCirc whiteCirc2')
@@ -180,7 +182,8 @@ class Custom {
                             .attr('fill', getFill(d.vis_align_2));
                         // Append an alignG3
                         const alignG3 = userG.append('g')
-                            .attr('class', 'alignG alignG3')
+                            .attr('class', 'alignG alignG3');
+                        alignG3.transition()
                             .style('transform', getCoords(vis.bigR + vis.bigRInc * 2, i + vis.curveInc * 2));
                         alignG3.append('circle')
                             .attr('class', 'whiteCirc whiteCirc3')
@@ -228,9 +231,10 @@ class Custom {
                         alignG3.select('.alignCirc3')
                             .attr('r', vis.lilR + vis.lilRDec * 2);
                         // Append line
-                        userPath.attr('d', vis.lineMaker(lineCoords));
+                        userPath.transition()
+                            .attr('d', vis.lineMaker(lineCoords));
                     }),
-                exit => exit.remove()
+                exit => exit.transition().remove()
 
             )
 
