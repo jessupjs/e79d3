@@ -194,7 +194,7 @@ class Custom {
                             .attr('r', vis.lilR + vis.lilRDec * 2)
                             .attr('fill', getFill(d.vis_align_3));
                         // Append line
-                        userPath.attr('d', vis.lineMaker(lineCoords));
+                        userPath.transition().attr('d', vis.lineMaker(lineCoords));
 
                     }),
                 // Update
@@ -234,7 +234,7 @@ class Custom {
                         userPath.transition()
                             .attr('d', vis.lineMaker(lineCoords));
                     }),
-                exit => exit.transition().remove()
+                exit => exit.remove()
 
             )
 
