@@ -87,6 +87,12 @@
     letter-spacing: 1px;
 }
 
+#fig3 {
+    transform: rotate(-45deg);
+    top: 100px;
+    width: fit-content;
+}
+
 #pie {
     position: absolute;
     justify-self: center;
@@ -95,7 +101,8 @@
 
 
 #filterBox {
-    left: -100px;
+    right: 0;
+    top: 200px;
     position: absolute;
 }
 
@@ -104,7 +111,7 @@
     flex-flow: column nowrap;
 
     font-family: 'Roboto', sans-serif;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 300;
     letter-spacing: 1px;
 }
