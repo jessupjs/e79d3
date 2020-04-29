@@ -1,8 +1,8 @@
 
 .line {
     fill: none;
-    stroke: black;
-    stroke-width: 0.5px;
+    stroke: rgba(0, 0, 0, 0.85);
+    stroke-width: 1px;
 }
 
 .shapePath {
