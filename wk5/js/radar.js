@@ -26,7 +26,7 @@ class Radar {
         .domain([0, 100])
         .range([0, this.r]);
     colorScale = d3.scaleLinear()
-        .range(['red', 'blue']);
+        .range(['rgb(0, 255, 255)', 'rgb(255, 0, 255)']);
     lineMaker = d3.line();
 
     /*
