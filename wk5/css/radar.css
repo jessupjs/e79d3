@@ -1,0 +1,35 @@
+
+.line {
+    fill: none;
+    stroke: black;
+    stroke-width: 0.5px;
+}
+
+.shapePath {
+    opacity: 0.25;
+}
+
+.radarLabel text {
+    font-family: sans-serif;
+    font-size: 10px;
+    font-weight: lighter;
+    text-anchor: middle;
+    transform: translate(0, -5px);
+}
+
+.rLabelQ1 text {
+    transform: rotate(45deg) translate(0, -5px);
+}
+
+.rLabelQ2 text {
+    transform: rotate(-45deg) translate(0, -5px);
+}
+
+.rLabelQ3 text {
+    transform: rotate(45deg) translate(0, 10px);
+}
+
+.rLabelQ4 text {
+    transform: rotate(-45deg) translate(0, 10px);
+}
+
